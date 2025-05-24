@@ -1,0 +1,15 @@
+name: "AurSynchronization"
+description: "Action synchronizing GitHub release and AUR repository"
+inputs:
+    pkg_name:
+        description: "Name of AUR package"
+        required: true
+    ssh_private_key:
+        description: "Secret SSH key chained to AUR package"
+        required: true
+runs:
+    using: "docker"
+    image: "Dockerfile"
+    args:
+        - "${{ inputs.pkg_name }}"
+        - "${{ inputs.ssh_private_key }}"
