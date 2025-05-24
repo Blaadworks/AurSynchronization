@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
+HOME=/home/synchronizer
 pkgName="$INPUT_PKG_NAME"
 
 cd ~/
