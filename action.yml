@@ -1,5 +1,8 @@
 name: "AurSynchronization"
 description: "Action synchronizing GitHub release and AUR repository"
+branding:
+    color: blue
+    icon: package
 inputs:
     pkg_name:
         description: "Name of AUR package"
