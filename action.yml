@@ -1,5 +1,5 @@
 name: "AurSynchronization"
-description: "Action synchronizing GitHub release and AUR repository"
+description: "Allows you to easily automate package updates on AUR"
 branding:
     color: "blue"
     icon: "package"
