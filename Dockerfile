@@ -7,7 +7,6 @@ RUN useradd -ms /bin/bash synchronizer && \
     echo 'synchronizer ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER synchronizer
 WORKDIR /home/synchronizer
-ENV HOME=/home/synchronizer
 
 COPY entrypoint.sh /entrypoint.sh
 

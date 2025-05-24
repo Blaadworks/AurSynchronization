@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+HOME=/home/synchronizer
 cd ~
 
 pkgName="$INPUT_PKG_NAME"
@@ -10,7 +11,7 @@ gitBody="$GITHUB_REPOSITORY"
 
 
 # Setup SSH
-mkdir .ssh
+mkdir -p ~/.ssh
 eval "$(ssh-agent -s)"
 echo "$sshKey" | ssh-add -
 ssh-keyscan aur.archlinux.org >> ~/.ssh/known_hosts
