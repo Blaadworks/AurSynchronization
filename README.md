@@ -20,7 +20,6 @@ jobs:
     aur-sync:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v4.2.2
           - uses: Blaadworks/AurSynchronization@v1.0.0
             with:
                 pkg_name: incredible-app
