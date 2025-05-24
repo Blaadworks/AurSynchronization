@@ -1,18 +1,24 @@
 name: "AurSynchronization"
 description: "Action synchronizing GitHub release and AUR repository"
 branding:
-    color: blue
-    icon: package
+    color: "blue"
+    icon: "package"
 inputs:
     pkg_name:
         description: "Name of AUR package"
         required: true
-    ssh_private_key:
+    pkg_desc:
+        description: "Description of AUR package"
+        required: false
+    ssh_key:
         description: "Secret SSH key chained to AUR package"
         required: true
+    commit_username:
+        description: "Name of the user on whose behalf the commit will be created"
+        required: false
+    commit_email:
+        description: "Email of the user on whose behalf the commit will be created"
+        required: false
 runs:
     using: "docker"
     image: "Dockerfile"
-    args:
-        - "${{ inputs.pkg_name }}"
-        - "${{ inputs.ssh_private_key }}"

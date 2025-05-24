@@ -1,14 +1,14 @@
 FROM archlinux:latest
 
-RUN pacman -Sy --noconfirm base-devel openssh git curl jq
+RUN pacman -Syu --noconfirm base-devel openssh git curl jq && \
+    pacman -Scc --noconfirm
 
-
-RUN useradd -ms /bin/bash synchronizer && echo 'synchronizer ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-COPY --chown=synchronizer:synchronizer entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
+RUN useradd -ms /bin/bash synchronizer && \
+    echo 'synchronizer ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER synchronizer
 WORKDIR /home/synchronizer
+ENV HOME=/home/synchronizer
+
+COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
