@@ -4,15 +4,18 @@ branding:
     color: "blue"
     icon: "package"
 inputs:
+    ssh_key:
+        description: "Secret SSH key chained to AUR package"
+        required: true
     pkg_name:
         description: "Name of AUR package"
         required: true
     pkg_desc:
         description: "Description of AUR package"
         required: false
-    ssh_key:
-        description: "Secret SSH key chained to AUR package"
-        required: true
+    pkg_license:
+        description: "License of AUR package"
+        required: false
     commit_username:
         description: "Name of the user on whose behalf the commit will be created"
         required: false
